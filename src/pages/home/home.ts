@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ComicProvider } from '../../providers/comic/comic'
+import { DetailPage } from '../detail/detail'
 
 @Component({
   selector: 'page-home',
@@ -35,8 +36,9 @@ export class HomePage {
     }
   }
 
-  loadDetailComic(){
-    // this.navCtrl.push(DetailPage)
+  loadDetailComic(value){
+    //console.log(this.datos.data.results[value.num])
+    this.navCtrl.push(DetailPage, { comicDetail: this.datos.data.results[value.num] } )
   }
 
   ionViewDidLoad() {

@@ -8,10 +8,10 @@
 
 <ion-content padding>
 	<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-	<ion-card *ngFor="let item of items">
+	<ion-card *ngFor="let item of items; let i = index " >
 		<img src="{{item.thumbnail.path}}/portrait_fantastic.{{item.thumbnail.extension}}"/>
 		<ion-card-content>
-			<ion-card-title (click)="loatDetailComic()">
+			<ion-card-title (click)="loadDetailComic({num: i})">
 				{{item.title}}
 			</ion-card-title>
 			<p text-center >
@@ -21,8 +21,8 @@
 
 		<ion-row>
 			<ion-col>
-				<button ion-button clear small block (click)="loatDetailComic()">
-					<div>Details</div>
+				<button ion-button clear small block (click)="loadDetailComic({num: i})">
+					<div>Detalles</div>
 				</button>
 			</ion-col>
 <!-- 			<ion-col>
