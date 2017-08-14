@@ -25198,3 +25198,7 @@ ion-navbar.toolbar {
     padding-top: calc(16px + 20px);
   }
 }
+
+page-detail ion-card.cards-list-demo ion-card-header {
+  color: #488aff;
+}

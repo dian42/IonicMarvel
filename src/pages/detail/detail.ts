@@ -17,8 +17,11 @@ import { CaracterPage } from '../caracter/caracter'
 export class DetailPage {
 
   comicDetail:any;
+  copy:string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   	this.comicDetail = this.navParams.get('comicDetail')
+  	this.copy = this.navParams.get('copy')
   }
 
   // ionViewDidLoad() {

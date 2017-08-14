@@ -14,15 +14,83 @@
 
 
 <ion-content padding>
-  <ion-list inset>
-    <button ion-item  (click)=loadCaracter() >
-     	Personajes
-    </button>
-<!--     <button ion-item  (click)=loadAutor() >
-     	Autores
-    </button>
-    <button ion-item  (click)=loadImagenes() >
-     	Imagenes
-    </button> -->
-</ion-list>
+	<ion-card *ngIf="comicDetail.title">
+	
+	  <ion-card-header >
+	    Titulo
+	  </ion-card-header>
+	
+	  <ion-card-content >
+	    {{comicDetail.title }} 
+	  </ion-card-content>
+	
+	</ion-card>
+
+	<ion-card *ngIf="comicDetail.description">
+	
+	  <ion-card-header >
+	    Descripción
+	  </ion-card-header>
+	
+	  <ion-card-content >
+	    {{comicDetail.description }} 
+	  </ion-card-content>
+	
+	</ion-card>
+
+	<ion-card *ngIf="comicDetail.modified != '-0001-11-30T00:00:00-0500'">
+	
+	  <ion-card-header >
+	    Modificado
+	  </ion-card-header>
+	
+	  <ion-card-content >
+	    {{comicDetail.modified  | date:"MM/dd/yy" }} 
+	  </ion-card-content>
+	
+	</ion-card>
+
+	<ion-card *ngIf="comicDetail.format">
+	
+	  <ion-card-header >
+	    Formato
+	  </ion-card-header>
+	
+	  <ion-card-content >
+	    {{comicDetail.format }} 
+	  </ion-card-content>
+	
+	</ion-card>
+
+
+	<ion-card class="cards-list-demo">
+		<ion-card-header>
+			Colecciones
+		</ion-card-header>
+		<hr>
+
+		<ion-list>
+			<button ion-item  (click)=loadCaracter() *ngIf="comicDetail.characters.available > 0">
+			 	Personajes
+			</button>
+			<button ion-item *ngIf="comicDetail.characters.available <= 0">
+			 	No existen personajes Registrados
+			</button>
+			<!--     <button ion-item  (click)=loadAutor() >
+			 	Autores
+			</button>
+			<button ion-item  (click)=loadImagenes() >
+			 	Imagenes
+			</button> -->
+		</ion-list>
+	</ion-card>
+	<a href="http://marvel.com\">{{copy}}</a>
 </ion-content>
+
+<!-- <ion-footer>
+  <ion-toolbar>
+    <ion-title>
+		<a href="http://marvel.com\">{{copy}}</a>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer> -->

@@ -38,7 +38,7 @@ export class HomePage {
 
   loadDetailComic(value){
     //console.log(this.datos.data.results[value.num])
-    this.navCtrl.push(DetailPage, { comicDetail: this.datos.data.results[value.num] } )
+    this.navCtrl.push(DetailPage, { comicDetail: this.datos.data.results[value.num], copy: this.copy } )
   }
 
   ionViewDidLoad() {

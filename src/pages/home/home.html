@@ -14,22 +14,34 @@
 			<ion-card-title (click)="loadDetailComic({num: i})">
 				{{item.title}}
 			</ion-card-title>
-			<p text-center >
+			<p text-center *ngIf="item.description">
 				{{item.description}}
+			</p>
+			<p text-center *ngIf="!item.description">
+				No existe una descripción ingresada para este título.
 			</p>
 		</ion-card-content>
 
 		<ion-row>
 			<ion-col>
-				<button ion-button clear small block (click)="loadDetailComic({num: i})">
+				<button ion-button clear small (click)="loadDetailComic({num: i})">
 					<div>Detalles</div>
 				</button>
 			</ion-col>
-<!-- 			<ion-col>
-				<button ion-button icon-left clear small>
-					<div>Characters</div>
-				</button>
-			</ion-col> -->
+			<ion-col center text-center *ngIf="item.modified != '-0001-11-30T00:00:00-0500'" >
+				<ion-note>
+					Modificado el {{item.modified  | date:"MM/dd/yy" }}
+				</ion-note>
+			</ion-col>
 		</ion-row>
 	</ion-card>
+	<a href="http://marvel.com\">{{copy}}</a>
 </ion-content>
+
+<!-- <ion-footer>
+  <ion-toolbar>
+    <ion-title>
+		<a href="http://marvel.com\">{{copy}}</a>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer> -->
