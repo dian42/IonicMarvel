@@ -29,9 +29,14 @@ export class HomePage {
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
       this.items = this.items.filter((item) => {
-        return (item.title.toLowerCase().indexOf(val.toLowerCase()) > -1 );
+        // console.log( item.dates.find( (date) => date.type === "onsaleDate").date )
+        return (item.title.toLowerCase().indexOf(val.toLowerCase()) > -1 ) ;
       })
     }
+  }
+
+  loadDetailComic(){
+    // this.navCtrl.push(DetailPage)
   }
 
   ionViewDidLoad() {

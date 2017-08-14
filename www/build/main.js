@@ -72,9 +72,13 @@ var HomePage = (function () {
         // if the value is an empty string don't filter the items
         if (val && val.trim() != '') {
             this.items = this.items.filter(function (item) {
+                console.log(item.dates.find(function (date) { return date.type === "onsaleDate"; }).date);
                 return (item.title.toLowerCase().indexOf(val.toLowerCase()) > -1);
             });
         }
+    };
+    HomePage.prototype.loadDetailComic = function () {
+        // this.navCtrl.push(DetailPage)
     };
     HomePage.prototype.ionViewDidLoad = function () {
         var _this = this;
@@ -84,11 +88,12 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/home/diego/Dev/marvelKunder/ionicMarvel/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n       Marvel Comics\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n	<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n	<ion-list>\n	  <ion-item *ngFor="let item of items">\n	    {{ item.title }}\n	  </ion-item>\n	</ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/diego/Dev/marvelKunder/ionicMarvel/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/home/diego/Dev/marvelKunder/ionicMarvel/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n       Marvel Comics\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n	<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n	<ion-card *ngFor="let item of items">\n		<img src="{{item.thumbnail.path}}/portrait_fantastic.{{item.thumbnail.extension}}"/>\n		<ion-card-content>\n			<ion-card-title (click)="loatDetailComic()">\n				{{item.title}}\n			</ion-card-title>\n			<p text-center >\n				{{item.description}}\n			</p>\n		</ion-card-content>\n\n		<ion-row>\n			<ion-col>\n				<button ion-button clear small block (click)="loatDetailComic()">\n					<div>Details</div>\n				</button>\n			</ion-col>\n<!-- 			<ion-col>\n				<button ion-button icon-left clear small>\n					<div>Characters</div>\n				</button>\n			</ion-col> -->\n		</ion-row>\n	</ion-card>\n</ion-content>\n'/*ion-inline-end:"/home/diego/Dev/marvelKunder/ionicMarvel/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_comic_comic__["a" /* ComicProvider */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_comic_comic__["a" /* ComicProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_comic_comic__["a" /* ComicProvider */]) === "function" && _b || Object])
 ], HomePage);
 
+var _a, _b;
 //# sourceMappingURL=home.js.map
 
 /***/ }),

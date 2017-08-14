@@ -8,9 +8,28 @@
 
 <ion-content padding>
 	<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-	<ion-list>
-	  <ion-item *ngFor="let item of items">
-	    {{ item.title }}
-	  </ion-item>
-	</ion-list>
+	<ion-card *ngFor="let item of items">
+		<img src="{{item.thumbnail.path}}/portrait_fantastic.{{item.thumbnail.extension}}"/>
+		<ion-card-content>
+			<ion-card-title (click)="loatDetailComic()">
+				{{item.title}}
+			</ion-card-title>
+			<p text-center >
+				{{item.description}}
+			</p>
+		</ion-card-content>
+
+		<ion-row>
+			<ion-col>
+				<button ion-button clear small block (click)="loatDetailComic()">
+					<div>Details</div>
+				</button>
+			</ion-col>
+<!-- 			<ion-col>
+				<button ion-button icon-left clear small>
+					<div>Characters</div>
+				</button>
+			</ion-col> -->
+		</ion-row>
+	</ion-card>
 </ion-content>
